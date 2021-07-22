@@ -1,0 +1,19 @@
+{
+  "name": "challengejs",
+  "version": "0.0.1",
+  "description": "ChallengeJs",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.6.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.6.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Juanjo Lescano",
+  "license": "ISC"
+}
