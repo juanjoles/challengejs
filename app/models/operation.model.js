@@ -12,5 +12,6 @@ module.exports =  (sequelize,Sequelize) => {
         type:{
             type:Sequelize.STRING
         }
-    })
+    });
+    return Operation;
 }

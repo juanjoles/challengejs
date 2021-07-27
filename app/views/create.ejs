@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="/css/bootstrap.css"">
+.<div class="container">
+
+
+    <div class="mask d-flex align-items-center h-100" size="5">
+
+
+        <div class="container">
+            
+            <div class="row justify-content-center">
+                
+                <div class="col-xl-5 col-md-8">
+                    <form  class="bg-white  rounded-5 shadow-5-strong p-5" action="/operation/operation" method="POST">
+                        <h1 class="row justify-content-center">Nuevo Registro</h1>
+                        <br/>
+                        <input type="text" placeholder="New Concept" class="form-control my-2" name="concept" required>
+                        <input type="number" placeholder="Amount" class="form-control my-2" name="amount"required>
+                        <input  placeholder="Date" class="form-control my-2" name="date" required class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date">
+                        <input type="text" placeholder="Type" class="form-control my-2" name="type" required>
+                        <br/>
+                        <button class="form-control my-2" type="submit" style="background-color: blueviolet; color: white;">Agregar</button> 
+                        <a href="/home" class="form-control my-2" style="text-decoration: none; text-align: center; background-color: blueviolet; color: white;">Volver</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
