@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Agenda de Citas</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-5 col-md-8">
+                <br/>
+                        <br/>
+                <form class="bg-white  rounded-5 shadow-5-strong p-5" action="register" method="POST">
+                    <h2 class="row justify-content-center">Registrar</h2>
+                    <!-- Email input -->
+                    <br/>
+                    <div class="form-outline mb-4">
+                        <input type="text"  class="form-control" name="email" required />
+                        <label class="form-label" for="form1Example1">Usuario</label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input type="password" id="form1Example2" class="form-control" name="password" required/>
+                        <label class="form-label" for="form1Example2">Password</label>
+                    </div>
+                    <!-- Submit button -->
+             
+
+                    <button class="form-control my-2" type="submit" style="background-color: blueviolet; color: white;">Aceptar</button>
+                    <a href="/" type="submit" class="form-control my-2" style="text-decoration: none; text-align: center; background-color: blueviolet; color: white;">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+   
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<% if (typeof alert != "undefined")  { %>
+ <script>
+ Swal.fire({
+   title:'<%= alertTitle %>',
+   text:'<%= alertMessage %>',
+   icon:'<%= alertIcon %>',
+   
+ }).then(()=>{
+   window.location='/<%= ruta %>'
+ })
+ </script>
+<% } %>
+</body>
+</html>

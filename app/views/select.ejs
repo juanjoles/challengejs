@@ -1,0 +1,67 @@
+<%- include("templates/head") %>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+
+
+    <body>
+        <br />
+        <div class="container">
+
+
+            <br />
+
+            <br />
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Concept</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <% if (arrayoperation.length> 0) { %>
+
+                        <% arrayoperation.forEach(operation=> { %>
+
+                            <tr>
+                                <th scope="row">
+                                    <%= operation.id %>
+                                </th>
+                        
+                                <td>
+                                    <%= operation.concept %>
+                                </td>
+                                <td>
+                                    <%= operation.amount %>
+                                </td>
+                                <% var nueva=operation.date.split(" ")[0].split("-").reverse().join("-"); %> 
+                                <td>
+                                    <%= nueva %>
+                                </td>
+                                <td>
+                                    <%= operation.type %>
+                                </td>
+                                <td>
+                                    <form method="GET" action="/home/editar/<%= operation.id %>">
+                                <td><button class="btn btn-warning btn-block" id="">
+                                        Editar
+                                    </button></td>
+                                </form>
+
+                                </td>
+                                <form method="POST" action="/home/eliminar/<%= operation.id %>">
+                                    <td><button class="btn btn-danger btn-block" id="btnEliminar">
+                                            Eliminar
+                                        </button></td>
+                                </form>
+                            </tr>
+                            <% }) %>
+
+                                <% } %>
+                </tbody>
+            </table>
+
+        </div>

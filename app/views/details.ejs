@@ -1,0 +1,35 @@
+<%- include("templates/head") %> 
+<link rel="stylesheet" href="/css/bootstrap.css">
+
+<div class="container">
+    <br/>
+    <br/>
+    <br/>
+    <center><h3>Details Register</h3></center>
+    <br/>
+
+    <div class="container">
+            
+        <div class="row justify-content-center">
+            
+            <div class="col-xl-5 col-md-8">                
+                <form   action="/home/ver/<%= arrayoperation.id %>?_method=PUT" method="POST" >                          
+                    <label for="">Concept:</label>
+                    <input type="text"  class="form-control" name="concept"  value="<%=arrayoperation.concept%> ">
+                    <br/>
+                    <label for="">Amount:</label>
+                    <input type="text"  class="form-control my-2" name="amount" id="amountInput" value="<%= arrayoperation.amount  %> ">
+                    <br/>
+                    <label for="">Date:</label>
+                    <input  class="form-control my-2" name="date"  class="textbox-n" type="text"  value="<%= arrayoperation.date  %>" onfocus="(this.type='date')" onblur="(this.type='text')" id="dateInput">
+                    <br/>
+                    <label for="">Type:</label>
+                    <input type="text"  class="form-control my-2" name="type" id="typeInput" value="<%= arrayoperation.type  %> " readonly="readonly">
+                  
+                    <button class="btn btn-warning btn-block" type="submit" style="background-color: blueviolet; color: white;">Edit</button> 
+                    <a href="/home" class="form-control my-2" style="text-decoration: none; text-align: center; background-color: blueviolet; color: white;">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

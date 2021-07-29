@@ -1,54 +1,83 @@
-<link rel="stylesheet" href="/css/bootstrap.css">
-<body>
-     
-<div class="container">
-    <% let suma = 0 %> 
-    <% let suma1 = 0 %> 
-    <% if (arrayoperation.length > 0) { %> 
-        <% arrayoperation.forEach( operation => { %> 
-            <% if (operation.type === "ingreso") { %> 
-                    
-                    <% suma +=  parseInt(operation.amount) %> 
-                    
-                <% } else { %>
-                    <% suma1 +=  parseInt(operation.amount) %> 
-                        <% } %> 
-            <% }) %> 
-             
-              
-             <h3>Ingresos:  <%= suma %> </h3>   
-             <h3>Egresos:  <%= suma1 %> </h3>  
-    <% } %>  
-    
-    <br/>
-    <h3>Listado de ultimas operaciones</h3>
-    <br/>
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Concept</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Date</th>
-            <th scope="col">Type</th>
-        </tr>
-    </thead>
-    <tbody>
-        <%  if (arrayoperation.length > 0) { %>
-            <% let nuevo = arrayoperation.slice(0,10) %> 
-            <%  nuevo.forEach(operation => { %>
-           
-                <tr>
-                    <th scope="row"> <%= operation.id %></th>
-                    <td><%= operation.concept %></td>
-                    <td><%= operation.amount %></td>
-                    <td><%= operation.date %></td>
-                    <td><%= operation.type %></td>
-                    
-                </tr>
-                <% }) %>
-              
-           <% } %>
-    </tbody>
-    </table>
-</div>
+<%- include("templates/head") %>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+
+
+    <body>
+        <br />
+        <div class="container">
+
+            <% let suma=0 %>
+                <% let suma1=0 %>
+                    <% let total=0 %>
+
+                        <% if (arrayoperation.length> 0) { %>
+                            <% arrayoperation.forEach( operation=> { %>
+                                <% if (operation.type==="ingreso" ) { %>
+
+                                    <% suma +=parseFloat(operation.amount) %>
+
+                                        <% } else { %>
+                                            <% suma1 +=parseFloat(operation.amount) %>
+                                                <% } %>
+                                                    <% }) %>
+
+                                                        <% total=suma - suma1 %>
+                                                            <h3>Ingresos: <%= suma.toFixed(2) %>
+                                                            </h3>
+                                                            <h3>Egresos: <%= suma1.toFixed(2) %>
+                                                            </h3>
+                                                            <h3>Balance: <%= total.toFixed(2) %>
+                                                            </h3>
+                                                            <% } %>
+
+
+                                                                <br />
+                                                                <center>
+                                                                    <h3>Listado de ultimas 10 operaciones</h3>
+                                                                </center>
+                                                                <br />
+                                                                <table class="table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th scope="col">#</th>                                                              
+                                                                            <th scope="col">Concept</th>
+                                                                            <th scope="col">Amount</th>
+                                                                            <th scope="col">Date</th>
+                                                                            <th scope="col">Type</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+
+                                                                        <% if (arrayoperation.length> 0) { %>
+                                                                            <% let nuevo=arrayoperation.slice(0,10) %>
+                                                                                <% nuevo.forEach(operation=> { %>
+
+                                                                                    <tr>
+                                                                                        <th scope="row">
+                                                                                            <%= operation.id %>
+                                                                                        </th>
+
+                                                                                        <td>
+                                                                                            <%= operation.concept %>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <%= operation.amount %>
+                                                                                        </td>
+                                                                                        <% var nueva=operation.date.split(" ")[0].split("-").reverse().join("-"); %>
+                                                                                        <td>                                                                                            
+                                                                                            <%= nueva %>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <%= operation.type %>
+                                                                                        </td>
+
+                                                                                    </tr>
+
+                                                                                    <% }) %>
+
+                                                                                        <% } %>
+                                                                    </tbody>
+                                                                </table>
+
+        </div>
+    </body>
